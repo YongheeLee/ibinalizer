@@ -34,6 +34,21 @@ public:
 	virtual int width() { return wid; }
 	virtual int height() { return hei; }
 
+	virtual const unsigned char* getDataAll() const { return data; }
+	virtual const unsigned char* getData(int x, int y) const {
+		if (data == nullptr)
+			return nullptr;
+
+		if (imgType == ImgTypeN::Gray)
+			return &data[y * wid + x];
+		else
+			return &data[3 * (y * wid + x)];
+	}
+
+	virtual ImgTypeN getImgType() const { return imgType; }
+	virtual int width() const { return wid; }
+	virtual int height() const { return hei; }
+
 private:
 	ImgTypeN imgType = ImgTypeN::Unknown;
 	unsigned char* data = nullptr;
