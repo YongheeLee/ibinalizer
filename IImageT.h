@@ -13,4 +13,11 @@ public:
 	virtual ImgTypeN getImgType() = 0;
 	virtual int width() = 0;
 	virtual int height() = 0;
+
+	virtual const unsigned char* getDataAll() const = 0;
+	virtual const unsigned char* getData(int x, int y) const = 0;
+
+	virtual ImgTypeN getImgType() const = 0;
+	virtual int width() const = 0;
+	virtual int height() const = 0;
 };
